@@ -1,0 +1,38 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+<div class="main">
+    <h1>Анализатор затрат</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Потвердить">
+    </form>
+    {% for el in expenses %}
+        <div class="expense">
+            <span class="expense-top"><span>Название: {{ el.name }}</span>
+            <span> Группа: {{ el.finance_group.name }}</span></span>
+
+{#            <br>#}
+            <span> Сумма: {{ el.amount }} </span> <br>
+        </div>
+
+    {% endfor %}
+    Not so long ago I used to believe that life would be simple. That was because in childhood you can easily ask your
+    parents if you want or need something, and you dont realize that when you will be an adult, you'll have to work to
+    get it. Life is really easy when you are a child.
+
+</div>
+</body>
+</html>
